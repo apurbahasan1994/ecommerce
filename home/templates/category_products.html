@@ -1,0 +1,65 @@
+
+{% extends 'home.html' %}
+{% load i18n %}
+{% block title %}{{products.title}} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+
+{% block body %}
+{% load static%}
+<!-- section -->
+<div class="section">	
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+				<div class="col-md-12">
+					<div class="order-summary clearfix">
+						<div class="section-title">
+							<h3 class="title">Product List</h3>
+						</div>
+						
+						<table class="shopping-cart-table table">
+							<thead>
+								<tr>
+									<th>Product</th>
+									<th></th>
+									<th class="text-center">Price</th>
+									<th class="text-center">Quantity</th>
+									<th class="text-center">Total</th>
+									<th class="text-right"></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for rs in products %}
+								<tr>
+									<td class="thumb">
+										<img src="{{rs.image.url}}" alt=""></td>
+									<td class="details">
+										<a href="/product/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a>
+									</td>
+									<td class="price text-center"><strong>{{rs.price}}</strong><br><del class="font-weak"><small>$40.00</small></del></td>
+									<td class="qty text-center"><input class="input" type="number" value="1"></td>
+									<td class="total text-center"><strong class="primary-color">{{rs.price}}</strong></td>
+								</tr>
+								{%endfor%}
+							
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+		</div>
+	</div>
+</div>
+
+
+		<!-- /row -->
+
+	<!-- /container -->
+
+<!-- /section -->
+
+
+{% endblock %}

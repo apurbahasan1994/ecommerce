@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+{% load i18n %}
+{% block title %}{{ setting.title }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block body %}
+
+
+<!-- section -->
+<div class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			
+				<div class="col-md-2">
+					<div class="billing-details">
+						<div class="section-title">
+							<h5>Contact Form</h5>
+							{% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-{{message.tags}}" role="alert">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+
+						</div>
+						<form id="checkout-form" class="clearfix" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="submit">
+                        </form>
+						
+				
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+				
+
+{%endblock%}
