@@ -90,7 +90,7 @@
                                 {%csrf_token%}
                             <div class="qty-input">
                                 <span class="text-uppercase">QTY: </span>
-                                <input name='quantity'class="input" type="number" min="1" max="{{products.amount}}">
+                                <input name='quantity'class="input" type="number" value="1" min="1" max="{{products.amount}}">
                             </div>
                             <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
                         </form>

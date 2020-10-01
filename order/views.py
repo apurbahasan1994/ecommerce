@@ -99,6 +99,7 @@ def orderproduct(request):
             data.last_name = form.cleaned_data['last_name']
             data.address = form.cleaned_data['address']
             data.city = form.cleaned_data['city']
+            data.country = form.cleaned_data['country']
             data.phone = form.cleaned_data['phone']
             data.user_id = current_user.id
             data.total = total
